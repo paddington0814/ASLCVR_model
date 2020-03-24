@@ -21,7 +21,7 @@ from cafndl_metrics import *
 
 ### specify the name of the case to be inferenced here ###
 
-case_name = "HC056"
+case_name = "newcase"
 
 
 ###
