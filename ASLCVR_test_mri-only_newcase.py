@@ -33,7 +33,7 @@ if not os.path.exists('/[model_directory]/{0}'.format(case_name)):
 data_dir = '/[data_directory]/'
 filename_mask = '/[MNI_brain_mask_filled.nii]/'
 
-M_model = ['/[model_directory]/ASLCVR_model_weight_final_fold1.mat',]
+M_model = ['/[model_directory]/ASLCVR_model_weight_final_fold1.ckpt',]
     
 Res_dir = ['/[result_directory]/{0}'.format(case_name)]
 
