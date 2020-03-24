@@ -26,51 +26,22 @@ case_name = "HC056"
 
 ###
 
-if not os.path.exists('/data/chen/ASLCVR/result/mri-only/{0}'.format(case_name)):
-    os.makedirs('/data/chen/ASLCVR/result/mri-only/{0}'.format(case_name))
+if not os.path.exists('/[model_directory]/{0}'.format(case_name)):
+    os.makedirs('/[model_directory]/{0}'.format(case_name))
 
 
-data_dir = '/data/chen/O-15/'
-filename_mask = '/data/chen/tools/MNI_brain_mask_filled.nii'
+data_dir = '/[data_directory]/'
+filename_mask = '/[MNI_brain_mask_filled.nii]/'
 
-M_model = [
-			'/data/chen/ASLCVR/model/mri-only/1/model_ASLCVR_fine_1.ckpt',
-			'/data/chen/ASLCVR/model/mri-only/1/model_ASLCVR_fine_2.ckpt',
-			'/data/chen/ASLCVR/model/mri-only/1/model_ASLCVR_fine_3.ckpt',
-			'/data/chen/ASLCVR/model/mri-only/1/model_ASLCVR_fine_4.ckpt',
-            '/data/chen/ASLCVR/model/mri-only/1/model_ASLCVR_fine_5.ckpt',
-            '/data/chen/ASLCVR/model/mri-only/1/model_ASLCVR_fine_6.ckpt',
-			]
+M_model = ['/[model_directory]/ASLCVR_model_weight_final_fold1.mat',]
     
-Res_dir = [
-            '/data/chen/ASLCVR/result/mri-only/{0}'.format(case_name),
-            '/data/chen/ASLCVR/result/mri-only/{0}'.format(case_name),
-            '/data/chen/ASLCVR/result/mri-only/{0}'.format(case_name),
-            '/data/chen/ASLCVR/result/mri-only/{0}'.format(case_name),
-            '/data/chen/ASLCVR/result/mri-only/{0}'.format(case_name),
-            '/data/chen/ASLCVR/result/mri-only/{0}'.format(case_name),
-			]
+Res_dir = ['/[result_directory]/{0}'.format(case_name)]
 
-Res_name = [
-			'result_final_fine_1',
-			'result_final_fine_2',
-			'result_final_fine_3',
-			'result_final_fine_4',
-            'result_final_fine_5',
-            'result_final_fine_6',
-			]	
+Res_name = ['syn_cvr']	
 					
-chnn_list = [
-				range(0,11),
-				range(0,11),
-				range(0,11),
-				range(0,11),
-                range(0,11),
-                range(0,11),
-            ]
+chnn_list = [range(0,11)]
 
-scale_channels = [	
-					#0,
+scale_channels = [
 					0,
 					0,
 					3,
@@ -87,25 +58,7 @@ scale_channels = [
 
 
 test_subs = [
-                # group1
-                ['{0}'.format(case_name)],
-
-                # group2
-                ['{0}'.format(case_name)],
-
-                # group3
-                ['{0}'.format(case_name)],
-
-                # group4
-                ['{0}'.format(case_name)],
-
-                # group5
-                ['{0}'.format(case_name)],
-
-                # group6
-                ['{0}'.format(case_name)],
-
-
+		['{0}'.format(case_name)],
             ]
 
 
@@ -124,56 +77,16 @@ slice2use = range(5,75) #range(5,75) #range(30,40)+range(50,60) #range(20,65)
 
 test_runs = [
                 [[1],],
-
-                [[1],],
-
-                [[1],],
-
-                [[1],],
-
-                [[1],],
-
-                [[1],],
 			]
 											
-N_pool = [
-			3,
-			3,
-            3,
-            3,
-            3,
-			3,
-			]
+N_pool = [3]
+N_conv = [3]
+pool_meth = ['max']
 
-N_conv = [
-            3,
-            3,
-            3,
-            3,
-            3,
-			3,
-			]
-
-pool_meth = [	
-			'max',
-			'max',
-			'max',
-			'max',
-            'max',
-			'max',
-			]
-
-Ch_pow_base = [	
-			2,
-			2,
-			2,
-			2,
-            2,
-			2,
-			]
+Ch_pow_base = [2]
 
 
-for ii in range(6):
+for ii in range(1):
     '''
     dataset
     '''
